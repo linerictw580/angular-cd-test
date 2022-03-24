@@ -1,0 +1,21 @@
+{{ rerender() }}
+<mat-card>
+  <mat-card-title>{{ title }}</mat-card-title>
+
+  <h4>ChangeDetectionStrategy.OnPush</h4>
+
+  <mat-card-actions *ngIf="buttons.length > 0">
+    <button *ngFor="let button of buttons" mat-raised-button
+      [color]="button.color || 'primary'"
+      (click)="button.onClick($event)"
+    >{{button.label}}</button>
+  </mat-card-actions>
+
+  <mat-card-content>
+    <mat-form-field appearance="fill">
+      <mat-label>Property</mat-label>
+      <input matInput [value]="name" readonly>
+    </mat-form-field>
+    <ng-content selector="app-node"></ng-content>
+  </mat-card-content>
+</mat-card>
