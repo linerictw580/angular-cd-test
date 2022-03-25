@@ -16,6 +16,7 @@
       <mat-label>Property</mat-label>
       <input matInput [value]="name" readonly>
     </mat-form-field>
+    <app-todolist [todos]="todos"></app-todolist>
     <ng-content selector="app-node"></ng-content>
   </mat-card-content>
 </mat-card>

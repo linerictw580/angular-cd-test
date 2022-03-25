@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { ChangeDetectorRef, Component, ElementRef, Input, NgZone, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AbstractCDComponent } from 'src/app/abstract-cd.component';
 import { IButton } from 'src/app/models/IButton.model';
+import { ITodo } from 'src/app/models/Todo.model';
 
 @Component({
   selector: 'app-node-base',
@@ -48,6 +49,10 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, On
       color: 'accent',
       onClick: this.triggerReattach.bind(this)
     },
+  ];
+
+  todos: ITodo[] = [
+    { id: 1, description: 'abc', completed: true }
   ];
 
   constructor(_el: ElementRef<any>, _zone: NgZone, cdr: ChangeDetectorRef, _http: HttpClient) {
