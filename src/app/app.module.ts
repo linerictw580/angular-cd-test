@@ -14,6 +14,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { OnPushNodeComponent } from './components/on-push-node/on-push-node.component';
 import { OnPushDemoComponent } from './on-push-demo/on-push-demo.component';
+import { NodeBaseComponent } from './components/node-base/node-base.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OnPushDemoComponent } from './on-push-demo/on-push-demo.component';
     DefaultDemoComponent,
     NodeComponent,
     OnPushNodeComponent,
-    OnPushDemoComponent
+    OnPushDemoComponent,
+    NodeBaseComponent
   ],
   imports: [
     BrowserModule,

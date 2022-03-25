@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Input, NgZone, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { AbstractCDComponent } from 'src/app/abstract-cd.component';
-import { IButton } from 'src/app/models/IButton.model';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-on-push-node',
@@ -9,57 +6,11 @@ import { IButton } from 'src/app/models/IButton.model';
   styleUrls: ['./on-push-node.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OnPushNodeComponent extends AbstractCDComponent implements OnInit, OnChanges {
+export class OnPushNodeComponent implements OnInit {
 
-  @Input() title: string = 'Card Title';
-  buttons: IButton[] = [
-    {
-      label: 'Property Change',
-      color: 'primary',
-      onClick: this.triggerPropertyChange.bind(this)
-    },
-    {
-      label: 'Async Property Change',
-      color: 'primary',
-      onClick: this.triggerAsyncPropertyChange.bind(this)
-    },
-    {
-      label: 'setTimeout',
-      color: 'primary',
-      onClick: this.triggerSetTimeout.bind(this)
-    },
-    {
-      label: 'setInterval',
-      color: 'primary',
-      onClick: this.triggerSetInterval.bind(this)
-    },
-    {
-      label: 'Empty Button',
-      color: 'primary',
-      onClick: () => {}
-    },
-    {
-      label: 'Detach',
-      color: 'accent',
-      onClick: this.triggerDetach.bind(this)
-    },
-    {
-      label: 'Reattach',
-      color: 'accent',
-      onClick: this.triggerReattach.bind(this)
-    },
-  ];
+  @Input() title: string = 'Node';
 
-  constructor(_el: ElementRef<any>, _zone: NgZone, cdr: ChangeDetectorRef, _http: HttpClient) {
-    super(_el, _zone, cdr, _http);
-  }
+  constructor() {}
 
-  ngOnInit(): void {
-    this.triggerPropertyChange();
-  }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges', changes);
-  }
-
+  ngOnInit(): void {}
 }
