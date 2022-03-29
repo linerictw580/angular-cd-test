@@ -67,4 +67,12 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, On
     console.log('ngOnChanges', changes);
   }
 
+  onNoCdClick($event) {
+    console.log('on noCdClick');
+    // const interval = setInterval(() => {
+    //   // clearInterval(interval);
+    //   console.log('interval');
+    // }, 1000);
+  }
+
 }

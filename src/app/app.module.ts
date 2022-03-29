@@ -17,6 +17,7 @@ import { OnPushNodeComponent } from './components/on-push-node/on-push-node.comp
 import { OnPushDemoComponent } from './on-push-demo/on-push-demo.component';
 import { NodeBaseComponent } from './components/node-base/node-base.component';
 import { TodolistComponent } from './components/todolist/todolist.component';
+import { NgOutButtonComponent } from './components/ng-out-button/ng-out-button.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TodolistComponent } from './components/todolist/todolist.component';
     OnPushNodeComponent,
     OnPushDemoComponent,
     NodeBaseComponent,
-    TodolistComponent
+    TodolistComponent,
+    NgOutButtonComponent
   ],
   imports: [
     BrowserModule,
