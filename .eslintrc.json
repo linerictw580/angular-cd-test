@@ -1,0 +1,213 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parserOptions": {
+        "project": [
+          "tsconfig.json"
+        ],
+        "createDefaultProgram": true
+      },
+      "extends": [
+        "eslint:recommended", // <-- 可以擺在第一位
+        "plugin:@angular-eslint/recommended",
+        "plugin:@typescript-eslint/recommended", // <-- 一定要放在 @angular-eslint 後面
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "prettier" // <!-- 一定要在最後關閉 Code formatting 相關的規則
+      ],
+      "rules": {
+        "no-extra-boolean-cast": [
+          "warn",
+          {
+            "enforceForLogicalOperands": true
+          }
+        ],
+        "no-return-assign": [
+          "error",
+          "always"
+        ],
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        "@typescript-eslint/ban-types": [
+          "error"
+        ],
+        "@typescript-eslint/explicit-module-boundary-types": [
+          "off"
+        ],
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            "selector": "default",
+            "format": ["camelCase"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "variable", // <-- 匹配 var / let / const 變數名稱
+            "format": ["camelCase"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            // 物件解構可能是任何東西 (一般屬性、後端 API、欄位名稱 etc.)
+            "selector": "variable",
+            "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+            "modifiers": ["destructured"],
+            "leadingUnderscore": "allowSingleOrDouble",
+            "trailingUnderscore": "allowSingleOrDouble"
+          },
+          {
+            // 要求 non-export function 以底線開頭 (類似 private)
+            // class method 或 object method 會套用後續的規則，因此不受影響
+            "selector": "function",
+            "format": ["camelCase"],
+            "leadingUnderscore": "require",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            // 允許 export function 可以不用底線 (類似 public)
+            "selector": "function",
+            "format": ["camelCase"],
+            "modifiers": ["exported"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "parameter",
+            "format": ["camelCase", "UPPER_CASE"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "parameterProperty",
+            "format": ["camelCase"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "parameterProperty",
+            "format": ["camelCase"],
+            "modifiers": ["private"],
+            "leadingUnderscore": "require",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            // 物件屬性有可能要對應後端 API 或 Database 欄位
+            "selector": "objectLiteralProperty",
+            "format": ["camelCase", "PascalCase", "UPPER_CASE"],
+            "leadingUnderscore": "forbid",  // <-- 防止自行定義的物件屬性包含底線
+            "trailingUnderscore": "forbid"
+          },
+          {
+            // 物件方法只有可能在前端被執行，因此限定 camelCase
+            "selector": "objectLiteralMethod",
+            "format": ["camelCase"],
+            "leadingUnderscore": "forbid",  // <-- 防止自行定義的物件方法包含底線
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "enumMember",
+            "format": ["UPPER_CASE"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "interface",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "^I[A-Z]",
+              "match": true
+            }
+          },
+          {
+            "selector": "memberLike",
+            "format": ["camelCase", "UPPER_CASE"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "memberLike",
+            "modifiers": ["private"],
+            "format": ["camelCase"],
+            "leadingUnderscore": "require",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "memberLike",
+            "modifiers": ["static"],
+            "format": ["UPPER_CASE"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "memberLike",
+            "modifiers": ["private", "static"],
+            "format": ["UPPER_CASE"],
+            "leadingUnderscore": "require",
+            "trailingUnderscore": "forbid"
+          },
+          {
+            "selector": "typeLike", // <-- 匹配 class / interface / typeAlias / enum / typeParameter
+            "format": ["PascalCase"],
+            "leadingUnderscore": "forbid",
+            "trailingUnderscore": "forbid"
+          }
+        ],
+        "@typescript-eslint/no-empty-function": [
+          "error",
+          {
+            "allow": [
+              "private-constructors",
+              "protected-constructors",
+              "decoratedFunctions"
+            ]
+          }
+        ],
+        "@typescript-eslint/no-explicit-any": [
+          "off",
+          {
+            "fixToUnknown": false,
+            "ignoreRestArgs": false
+          }
+        ],
+        "@typescript-eslint/no-inferrable-types": [
+          "warn",
+          {
+            "ignoreParameters": true,
+            "ignoreProperties": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "prettier"
+      ],
+      "rules": {}
+    }
+  ]
+}
