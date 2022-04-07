@@ -4,15 +4,12 @@ import { ITodo } from 'src/app/models/Todo.model';
 @Component({
   selector: 'app-todolist',
   templateUrl: './todolist.component.html',
-  styleUrls: ['./todolist.component.scss']
+  styleUrls: ['./todolist.component.scss'],
 })
 export class TodolistComponent implements OnInit {
-
   @Input() todos: ITodo[];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

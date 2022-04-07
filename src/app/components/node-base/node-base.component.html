@@ -5,17 +5,24 @@
   <h4>{{ strategy }}</h4>
 
   <mat-card-actions *ngIf="buttons.length > 0">
-    <ng-out-button [label]="'No Change Detection'" (noCdClick)="onNoCdClick($event)"></ng-out-button>
-    <button *ngFor="let button of buttons" mat-raised-button
+    <ng-out-button
+      [label]="'No Change Detection'"
+      (noCdClick)="onNoCdClick($event)"
+    ></ng-out-button>
+    <button
+      *ngFor="let button of buttons"
+      mat-raised-button
       [color]="button.color || 'primary'"
       (click)="button.onClick($event)"
-    >{{button.label}}</button>
+    >
+      {{ button.label }}
+    </button>
   </mat-card-actions>
 
   <mat-card-content>
     <mat-form-field appearance="fill">
       <mat-label>Property</mat-label>
-      <input matInput [value]="name" readonly>
+      <input matInput [value]="name" readonly />
     </mat-form-field>
     <app-todolist [todos]="todos"></app-todolist>
     <ng-content selector="app-node"></ng-content>

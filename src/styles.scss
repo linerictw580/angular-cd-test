@@ -1,24 +1,31 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
 
-app-node, app-on-push-node {
-  &:not(:last-child){
+app-node,
+app-on-push-node {
+  &:not(:last-child) {
     .mat-card {
       margin-bottom: 8px !important;
     }
   }
-  mat-card{
+  mat-card {
     border: 1px solid black;
 
-    mat-card-title{
+    mat-card-title {
       margin-bottom: 0;
     }
     mat-card-actions {
       margin-bottom: 0;
 
-      button{
+      button {
         margin: 0 8px !important;
       }
     }

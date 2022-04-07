@@ -8,9 +8,8 @@ describe('OnPushNodeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OnPushNodeComponent ]
-    })
-    .compileComponents();
+      declarations: [OnPushNodeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

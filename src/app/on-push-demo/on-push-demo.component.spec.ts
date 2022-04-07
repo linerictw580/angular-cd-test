@@ -8,9 +8,8 @@ describe('OnpushComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OnPushDemoComponent ]
-    })
-    .compileComponents();
+      declarations: [OnPushDemoComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

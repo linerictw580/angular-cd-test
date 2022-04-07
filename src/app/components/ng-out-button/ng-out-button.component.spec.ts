@@ -8,9 +8,8 @@ describe('NgOutButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NgOutButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [NgOutButtonComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

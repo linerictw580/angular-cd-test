@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, ElementRef, NgZone } from "@angular/core";
+import { ChangeDetectorRef, ElementRef, NgZone } from '@angular/core';
 import { getName } from 'src/app/utils/fake.utils';
 import { HttpClient } from '@angular/common/http';
 
@@ -17,8 +17,7 @@ export abstract class AbstractCDComponent {
   }
 
   triggerAsyncPropertyChange() {
-    this._http.get<{ name: string }>(`./assets/async-data/async-data.json`)
-    .subscribe(res => {
+    this._http.get<{ name: string }>(`./assets/async-data/async-data.json`).subscribe((res) => {
       this.name = `${res.name}`;
     });
   }

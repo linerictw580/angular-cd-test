@@ -9,7 +9,10 @@ import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
 import { DefaultDemoComponent } from './default-demo/default-demo.component';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {
+  BrowserAnimationsModule,
+  NoopAnimationsModule,
+} from '@angular/platform-browser/animations';
 import { NodeComponent } from './components/node/node.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
@@ -28,7 +31,7 @@ import { NgOutButtonComponent } from './components/ng-out-button/ng-out-button.c
     OnPushDemoComponent,
     NodeBaseComponent,
     TodolistComponent,
-    NgOutButtonComponent
+    NgOutButtonComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,9 +44,9 @@ import { NgOutButtonComponent } from './components/ng-out-button/ng-out-button.c
     MatInputModule,
     MatFormFieldModule,
     MatTabsModule,
-    MatListModule
+    MatListModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
