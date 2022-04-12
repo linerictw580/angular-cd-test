@@ -9,7 +9,6 @@ export abstract class AbstractCDComponent {
     protected _http: HttpClient
   ) {}
 
-  name: string;
   displayRerender = true;
 
   rerender() {

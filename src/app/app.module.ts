@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatTableModule } from '@angular/material/table';
 
 import { AppComponent } from './app.component';
 import { DefaultDemoComponent } from './demos/default-demo/default-demo.component';
@@ -23,13 +24,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { OnPushNodeComponent } from './components/on-push-node/on-push-node.component';
 import { OnPushDemoComponent } from './demos/on-push-demo/on-push-demo.component';
 import { NodeBaseComponent } from './components/node-base/node-base.component';
-import { TodolistComponent } from './components/todolist/todolist.component';
 import { NoCdButtonComponent } from './components/no-cd-button/no-cd-button.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomeComponent } from './demos/home/home.component';
 import { SingleNodeDemoComponent } from './demos/single-node-demo/single-node-demo.component';
 import { MixedDemoComponent } from './demos/mixed-demo/mixed-demo.component';
+import { UserListDemoComponent } from './demos/user-list-demo/user-list-demo.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +41,14 @@ import { MixedDemoComponent } from './demos/mixed-demo/mixed-demo.component';
     OnPushNodeComponent,
     OnPushDemoComponent,
     NodeBaseComponent,
-    TodolistComponent,
     NoCdButtonComponent,
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,
     SingleNodeDemoComponent,
     MixedDemoComponent,
+    UserListDemoComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,6 +66,7 @@ import { MixedDemoComponent } from './demos/mixed-demo/mixed-demo.component';
     MatSidenavModule,
     MatToolbarModule,
     MatIconModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

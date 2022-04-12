@@ -34,3 +34,12 @@ app-on-push-node {
 .highlight {
   border: 2px solid red !important;
 }
+
+table{
+  thead{
+    background: darkgray !important;
+  }
+  tbody{
+    background: rgb(241, 241, 241) !important;
+  }
+}

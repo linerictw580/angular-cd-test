@@ -8,14 +8,11 @@ import {
   NgZone,
   OnDestroy,
   OnInit,
-  SimpleChanges,
   ViewChild,
 } from '@angular/core';
 import { fromEvent, Subscription, timer } from 'rxjs';
-import { delay } from 'rxjs/operators';
 import { AbstractCDComponent } from 'src/app/components/abstract-cd.component';
 import { IButton } from 'src/app/models/IButton.model';
-import { ITodo } from 'src/app/models/Todo.model';
 import { getName } from 'src/app/utils/fake.utils';
 
 @Component({
@@ -26,6 +23,8 @@ import { getName } from 'src/app/utils/fake.utils';
 export class NodeBaseComponent extends AbstractCDComponent implements OnInit, DoCheck, OnDestroy {
   @Input() strategy: string;
   @Input() title: string = 'Card Title';
+  name: string;
+
   buttons: IButton[] = [
     // {
     //   label: 'Property Change',
@@ -78,8 +77,6 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, Do
   @ViewChild('checkbox', { static: true }) checkbox: ElementRef;
   private _checkboxSub: Subscription;
 
-  todos: ITodo[] = [{ id: 1, description: 'abc', completed: true }];
-
   constructor(_el: ElementRef<any>, _zone: NgZone, cdr: ChangeDetectorRef, _http: HttpClient) {
     super(_el, _zone, cdr, _http);
   }
@@ -102,15 +99,11 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, Do
   }
 
   onNormalBtnClick($event) {
-    console.log('button click');
+    console.log('on button clicked');
   }
 
   onNoCdClick($event) {
-    console.log('on noCdClick');
-    // const interval = setInterval(() => {
-    //   // clearInterval(interval);
-    //   console.log('interval');
-    // }, 1000);
+    console.log('on no detection button clicked');
   }
 
   triggerPropertyChange() {

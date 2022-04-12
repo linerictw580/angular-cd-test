@@ -1,0 +1,36 @@
+<!-- {{ rerender() }} -->
+<mat-card>
+  <table mat-table [dataSource]="users" [ngStyle]="{ width: '100%' }">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+    </ng-container>
+
+    <!-- Job Column -->
+    <ng-container matColumnDef="job">
+      <th mat-header-cell *matHeaderCellDef>Job</th>
+      <td mat-cell *matCellDef="let user">{{ user.job }}</td>
+    </ng-container>
+
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+      <th mat-header-cell *matHeaderCellDef>Phone</th>
+      <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let user">
+        <button (click)="onChangeName(user)">Change Name</button>
+        <!-- <no-cd-button [emitInZone]="false" (noCdClick)="onChangeName(user)"
+          >Change Name</no-cd-button
+        > -->
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</mat-card>
