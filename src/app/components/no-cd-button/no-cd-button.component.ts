@@ -17,7 +17,7 @@ import { fromEvent, Subscription } from 'rxjs';
   styleUrls: ['./no-cd-button.component.scss'],
 })
 export class NoCdButtonComponent implements OnInit, OnDestroy {
-  @Input() label: string;
+  @Input() emitInZone;
   @Output() noCdClick = new EventEmitter();
 
   @ViewChild('btn', { static: true }) button: ElementRef;
@@ -29,9 +29,13 @@ export class NoCdButtonComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this._zone.runOutsideAngular(() => {
       this._subscription = fromEvent(this.button.nativeElement, 'click').subscribe(() => {
-        // this._zone.run(() => {
-        this.noCdClick.emit();
-        // });
+        if (this.emitInZone) {
+          this._zone.run(() => {
+            this.noCdClick.emit();
+          });
+        } else {
+          this.noCdClick.emit();
+        }
       });
     });
   }

@@ -11,7 +11,8 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { fromEvent, Subscription } from 'rxjs';
+import { fromEvent, Subscription, timer } from 'rxjs';
+import { delay } from 'rxjs/operators';
 import { AbstractCDComponent } from 'src/app/components/abstract-cd.component';
 import { IButton } from 'src/app/models/IButton.model';
 import { ITodo } from 'src/app/models/Todo.model';
@@ -26,41 +27,52 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, Do
   @Input() strategy: string;
   @Input() title: string = 'Card Title';
   buttons: IButton[] = [
-    {
-      label: 'Property Change',
-      color: 'primary',
-      onClick: this.triggerPropertyChange.bind(this),
-    },
-    {
-      label: 'Async Property Change',
-      color: 'primary',
-      onClick: this.triggerAsyncPropertyChange.bind(this),
-    },
+    // {
+    //   label: 'Property Change',
+    //   color: 'primary',
+    //   onClick: this.triggerPropertyChange.bind(this),
+    //   emitInZone: false,
+    // },
+    // {
+    //   label: 'Async Property Change',
+    //   color: 'primary',
+    //   emitInZone: false,
+    //   onClick: this.triggerAsyncPropertyChange.bind(this),
+    // },
     {
       label: 'setTimeout',
       color: 'primary',
+      emitInZone: false,
       onClick: this.triggerSetTimeout.bind(this),
     },
     {
       label: 'setInterval',
       color: 'primary',
+      emitInZone: false,
       onClick: this.triggerSetInterval.bind(this),
     },
     {
-      label: 'Empty Button',
+      label: 'Emit Event',
       color: 'primary',
-      onClick: () => {},
+      onClick: this.triggerEmitEvent.bind(this),
+      emitInZone: true,
     },
     {
-      label: 'Detach',
-      color: 'accent',
-      onClick: this.triggerDetach.bind(this),
+      label: 'Observable',
+      color: 'primary',
+      onClick: this.triggerObservable.bind(this),
+      emitInZone: false,
     },
-    {
-      label: 'Reattach',
-      color: 'accent',
-      onClick: this.triggerReattach.bind(this),
-    },
+    // {
+    //   label: 'Detach',
+    //   color: 'accent',
+    //   onClick: this.triggerDetach.bind(this),
+    // },
+    // {
+    //   label: 'Reattach',
+    //   color: 'accent',
+    //   onClick: this.triggerReattach.bind(this),
+    // },
   ];
 
   @ViewChild('checkbox', { static: true }) checkbox: ElementRef;
@@ -112,11 +124,41 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, Do
   }
 
   triggerSetTimeout() {
-    const timeout = setTimeout(() => clearTimeout(timeout), 0);
+    this._zone.run(() => {
+      console.log('set timeout');
+      const timeout = setTimeout(() => {
+        console.log('on timeout');
+        clearTimeout(timeout);
+      }, 2000);
+    });
   }
 
   triggerSetInterval() {
-    const interval = setInterval(() => clearInterval(interval), 0);
+    this._zone.run(() => {
+      console.log('set interval');
+      const interval = setInterval(() => {
+        console.log('on interval');
+        // clearInterval(interval);
+      }, 2000);
+    });
+  }
+
+  triggerEmitEvent() {
+    console.log('emit event');
+  }
+
+  triggerObservable() {
+    // this._zone.run(() => {
+    //   this._http
+    //     .get<{ name: string }>(`./assets/async-data/async-data.json`)
+    //     .pipe(delay(2000))
+    //     .subscribe((res) => {
+    //       console.log('observable next');
+    //     });
+    // });
+    timer(2000).subscribe(() => {
+      console.log('observable next');
+    });
   }
 
   triggerDetach() {

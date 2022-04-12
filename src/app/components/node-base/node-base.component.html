@@ -16,16 +16,21 @@
       <input type="checkbox" [checked]="displayRerender" #checkbox />
     </p>
 
-    <no-cd-button [label]="'No Change Detection'" (noCdClick)="onNoCdClick($event)"></no-cd-button>
-    <button (click)="onNormalBtnClick($event)">Normal Button</button>
-    <!-- <button
-      *ngFor="let button of buttons"
-      mat-raised-button
-      [color]="button.color || 'primary'"
-      (click)="button.onClick($event)"
-    >
-      {{ button.label }}
-    </button> -->
+    <p>
+      <no-cd-button [emitInZone]="false" (noCdClick)="onNoCdClick($event)"
+        >No Change Detection</no-cd-button
+      >
+      <button (click)="onNormalBtnClick($event)">Normal Button</button>
+    </p>
+
+    <p>
+      <no-cd-button
+        *ngFor="let button of buttons"
+        [emitInZone]="button.emitInZone"
+        (noCdClick)="button.onClick($event)"
+        >{{ button.label }}</no-cd-button
+      >
+    </p>
   </mat-card-actions>
 
   <mat-card-content>
