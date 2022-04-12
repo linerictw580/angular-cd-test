@@ -1,42 +1,15 @@
 import { ChangeDetectorRef, ElementRef, NgZone } from '@angular/core';
-import { getName } from 'src/app/utils/fake.utils';
 import { HttpClient } from '@angular/common/http';
 
 export abstract class AbstractCDComponent {
   protected constructor(
-    private _el: ElementRef<any>,
-    private _zone: NgZone,
+    protected _el: ElementRef<any>,
+    protected _zone: NgZone,
     public cdr: ChangeDetectorRef,
-    private _http: HttpClient
+    protected _http: HttpClient
   ) {}
 
   name: string;
-
-  triggerPropertyChange() {
-    this.name = getName();
-  }
-
-  triggerAsyncPropertyChange() {
-    this._http.get<{ name: string }>(`./assets/async-data/async-data.json`).subscribe((res) => {
-      this.name = `${res.name}`;
-    });
-  }
-
-  triggerSetTimeout() {
-    const timeout = setTimeout(() => clearTimeout(timeout), 0);
-  }
-
-  triggerSetInterval() {
-    const interval = setInterval(() => clearInterval(interval), 0);
-  }
-
-  triggerDetach() {
-    this.cdr.detach();
-  }
-
-  triggerReattach() {
-    this.cdr.reattach();
-  }
 
   rerender() {
     const nativeElement = this._el.nativeElement as HTMLElement;

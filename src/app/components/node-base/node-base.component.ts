@@ -12,6 +12,7 @@ import {
 import { AbstractCDComponent } from 'src/app/components/abstract-cd.component';
 import { IButton } from 'src/app/models/IButton.model';
 import { ITodo } from 'src/app/models/Todo.model';
+import { getName } from 'src/app/utils/fake.utils';
 
 @Component({
   selector: 'app-node-base',
@@ -79,5 +80,31 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, On
     //   // clearInterval(interval);
     //   console.log('interval');
     // }, 1000);
+  }
+
+  triggerPropertyChange() {
+    this.name = getName();
+  }
+
+  triggerAsyncPropertyChange() {
+    this._http.get<{ name: string }>(`./assets/async-data/async-data.json`).subscribe((res) => {
+      this.name = `${res.name}`;
+    });
+  }
+
+  triggerSetTimeout() {
+    const timeout = setTimeout(() => clearTimeout(timeout), 0);
+  }
+
+  triggerSetInterval() {
+    const interval = setInterval(() => clearInterval(interval), 0);
+  }
+
+  triggerDetach() {
+    this.cdr.detach();
+  }
+
+  triggerReattach() {
+    this.cdr.reattach();
   }
 }

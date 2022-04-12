@@ -27,13 +27,11 @@ export class NgOutButtonComponent implements OnInit, OnDestroy {
   constructor(private _zone: NgZone) {}
 
   ngOnInit(): void {
-    // console.log(this.button.nativeElement);
     this._zone.runOutsideAngular(() => {
       this._subscription = fromEvent(this.button.nativeElement, 'click').subscribe((e) => {
-        // console.log('no change detection');
-        this._zone.run(() => {
-          this.noCdClick.emit();
-        });
+        // this._zone.run(() => {
+        this.noCdClick.emit();
+        // });
       });
     });
   }
