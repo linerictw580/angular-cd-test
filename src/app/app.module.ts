@@ -8,7 +8,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
 
 import { AppComponent } from './app.component';
-import { DefaultDemoComponent } from './default-demo/default-demo.component';
+import { DefaultDemoComponent } from './demos/default-demo/default-demo.component';
 import {
   BrowserAnimationsModule,
   NoopAnimationsModule,
@@ -17,7 +17,7 @@ import { NodeComponent } from './components/node/node.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { OnPushNodeComponent } from './components/on-push-node/on-push-node.component';
-import { OnPushDemoComponent } from './on-push-demo/on-push-demo.component';
+import { OnPushDemoComponent } from './demos/on-push-demo/on-push-demo.component';
 import { NodeBaseComponent } from './components/node-base/node-base.component';
 import { TodolistComponent } from './components/todolist/todolist.component';
 import { NgOutButtonComponent } from './components/ng-out-button/ng-out-button.component';

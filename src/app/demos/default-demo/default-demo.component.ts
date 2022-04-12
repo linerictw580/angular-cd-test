@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IButton } from '../models/IButton.model';
+import { IButton } from '../../models/IButton.model';
 
 @Component({
   selector: 'default-demo',

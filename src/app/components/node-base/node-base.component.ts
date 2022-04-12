@@ -9,7 +9,7 @@ import {
   OnInit,
   SimpleChanges,
 } from '@angular/core';
-import { AbstractCDComponent } from 'src/app/abstract-cd.component';
+import { AbstractCDComponent } from 'src/app/components/abstract-cd.component';
 import { IButton } from 'src/app/models/IButton.model';
 import { ITodo } from 'src/app/models/Todo.model';
 
