@@ -2,13 +2,16 @@ import { HttpClient } from '@angular/common/http';
 import {
   ChangeDetectorRef,
   Component,
+  DoCheck,
   ElementRef,
   Input,
   NgZone,
-  OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
+  ViewChild,
 } from '@angular/core';
+import { fromEvent, Subscription } from 'rxjs';
 import { AbstractCDComponent } from 'src/app/components/abstract-cd.component';
 import { IButton } from 'src/app/models/IButton.model';
 import { ITodo } from 'src/app/models/Todo.model';
@@ -19,7 +22,7 @@ import { getName } from 'src/app/utils/fake.utils';
   templateUrl: './node-base.component.html',
   styleUrls: ['./node-base.component.scss'],
 })
-export class NodeBaseComponent extends AbstractCDComponent implements OnInit, OnChanges {
+export class NodeBaseComponent extends AbstractCDComponent implements OnInit, DoCheck, OnDestroy {
   @Input() strategy: string;
   @Input() title: string = 'Card Title';
   buttons: IButton[] = [
@@ -60,6 +63,9 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, On
     },
   ];
 
+  @ViewChild('checkbox', { static: true }) checkbox: ElementRef;
+  private _checkboxSub: Subscription;
+
   todos: ITodo[] = [{ id: 1, description: 'abc', completed: true }];
 
   constructor(_el: ElementRef<any>, _zone: NgZone, cdr: ChangeDetectorRef, _http: HttpClient) {
@@ -67,11 +73,24 @@ export class NodeBaseComponent extends AbstractCDComponent implements OnInit, On
   }
 
   ngOnInit(): void {
-    this.triggerPropertyChange();
+    // this.triggerPropertyChange();
+    this._zone.runOutsideAngular(() => {
+      this._checkboxSub = fromEvent(this.checkbox.nativeElement, 'click').subscribe(() => {
+        this.displayRerender = !this.displayRerender;
+      });
+    });
   }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log('ngOnChanges', changes);
+  ngDoCheck(): void {
+    console.log('ngDoCheck');
+  }
+
+  ngOnDestroy(): void {
+    this._checkboxSub.unsubscribe();
+  }
+
+  onNormalBtnClick($event) {
+    console.log('button click');
   }
 
   onNoCdClick($event) {

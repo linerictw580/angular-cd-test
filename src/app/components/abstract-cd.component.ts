@@ -10,8 +10,15 @@ export abstract class AbstractCDComponent {
   ) {}
 
   name: string;
+  displayRerender = true;
 
   rerender() {
+    console.log('rerender');
+
+    if (!this.displayRerender) {
+      return;
+    }
+
     const nativeElement = this._el.nativeElement as HTMLElement;
     const matCard = nativeElement.getElementsByTagName('mat-card')[0];
     matCard.classList.add('highlight');

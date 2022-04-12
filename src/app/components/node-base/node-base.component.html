@@ -2,26 +2,38 @@
 <mat-card>
   <mat-card-title>{{ title }}</mat-card-title>
 
-  <h4>{{ strategy }}</h4>
+  <h4>
+    ChangeDetectionStrategy.<span
+      class="strategy"
+      [ngStyle]="{ color: strategy === 'Default' ? 'red' : 'green', fontWeight: 'bold' }"
+      >{{ strategy }}</span
+    >
+  </h4>
 
-  <mat-card-actions *ngIf="buttons.length > 0">
+  <mat-card-actions>
+    <p>
+      <label>Display Rerender</label>
+      <input type="checkbox" [checked]="displayRerender" #checkbox />
+    </p>
+
     <no-cd-button [label]="'No Change Detection'" (noCdClick)="onNoCdClick($event)"></no-cd-button>
-    <button
+    <button (click)="onNormalBtnClick($event)">Normal Button</button>
+    <!-- <button
       *ngFor="let button of buttons"
       mat-raised-button
       [color]="button.color || 'primary'"
       (click)="button.onClick($event)"
     >
       {{ button.label }}
-    </button>
+    </button> -->
   </mat-card-actions>
 
   <mat-card-content>
-    <mat-form-field appearance="fill">
+    <!-- <mat-form-field appearance="fill">
       <mat-label>Property</mat-label>
       <input matInput [value]="name" readonly />
     </mat-form-field>
-    <app-todolist [todos]="todos"></app-todolist>
+    <app-todolist [todos]="todos"></app-todolist> -->
     <ng-content selector="app-node"></ng-content>
   </mat-card-content>
 </mat-card>

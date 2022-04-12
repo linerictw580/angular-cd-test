@@ -28,7 +28,7 @@ export class NoCdButtonComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this._zone.runOutsideAngular(() => {
-      this._subscription = fromEvent(this.button.nativeElement, 'click').subscribe((e) => {
+      this._subscription = fromEvent(this.button.nativeElement, 'click').subscribe(() => {
         // this._zone.run(() => {
         this.noCdClick.emit();
         // });

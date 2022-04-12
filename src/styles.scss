@@ -12,13 +12,9 @@ body {
 
 app-node,
 app-on-push-node {
-  &:not(:last-child) {
-    .mat-card {
-      margin-bottom: 8px !important;
-    }
-  }
   mat-card {
     border: 1px solid black;
+    margin: 0.5rem;
 
     mat-card-title {
       margin-bottom: 0;

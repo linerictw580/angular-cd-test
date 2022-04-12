@@ -28,6 +28,8 @@ import { NoCdButtonComponent } from './components/no-cd-button/no-cd-button.comp
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomeComponent } from './demos/home/home.component';
+import { SingleNodeDemoComponent } from './demos/single-node-demo/single-node-demo.component';
+import { MixedDemoComponent } from './demos/mixed-demo/mixed-demo.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,8 @@ import { HomeComponent } from './demos/home/home.component';
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,
+    SingleNodeDemoComponent,
+    MixedDemoComponent,
   ],
   imports: [
     BrowserModule,
