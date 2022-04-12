@@ -12,11 +12,11 @@ import {
 import { fromEvent, Subscription } from 'rxjs';
 
 @Component({
-  selector: 'ng-out-button',
-  templateUrl: './ng-out-button.component.html',
-  styleUrls: ['./ng-out-button.component.scss'],
+  selector: 'no-cd-button',
+  templateUrl: './no-cd-button.component.html',
+  styleUrls: ['./no-cd-button.component.scss'],
 })
-export class NgOutButtonComponent implements OnInit, OnDestroy {
+export class NoCdButtonComponent implements OnInit, OnDestroy {
   @Input() label: string;
   @Output() noCdClick = new EventEmitter();
 

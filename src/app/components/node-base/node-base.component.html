@@ -5,10 +5,7 @@
   <h4>{{ strategy }}</h4>
 
   <mat-card-actions *ngIf="buttons.length > 0">
-    <ng-out-button
-      [label]="'No Change Detection'"
-      (noCdClick)="onNoCdClick($event)"
-    ></ng-out-button>
+    <no-cd-button [label]="'No Change Detection'" (noCdClick)="onNoCdClick($event)"></no-cd-button>
     <button
       *ngFor="let button of buttons"
       mat-raised-button

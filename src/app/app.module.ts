@@ -24,7 +24,7 @@ import { OnPushNodeComponent } from './components/on-push-node/on-push-node.comp
 import { OnPushDemoComponent } from './demos/on-push-demo/on-push-demo.component';
 import { NodeBaseComponent } from './components/node-base/node-base.component';
 import { TodolistComponent } from './components/todolist/todolist.component';
-import { NgOutButtonComponent } from './components/ng-out-button/ng-out-button.component';
+import { NoCdButtonComponent } from './components/no-cd-button/no-cd-button.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { HomeComponent } from './demos/home/home.component';
@@ -38,7 +38,7 @@ import { HomeComponent } from './demos/home/home.component';
     OnPushDemoComponent,
     NodeBaseComponent,
     TodolistComponent,
-    NgOutButtonComponent,
+    NoCdButtonComponent,
     SidenavComponent,
     ToolbarComponent,
     HomeComponent,
