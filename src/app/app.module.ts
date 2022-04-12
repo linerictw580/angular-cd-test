@@ -6,6 +6,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatListModule } from '@angular/material/list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 
 import { AppComponent } from './app.component';
 import { DefaultDemoComponent } from './demos/default-demo/default-demo.component';
@@ -16,11 +19,15 @@ import {
 import { NodeComponent } from './components/node/node.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
 import { OnPushNodeComponent } from './components/on-push-node/on-push-node.component';
 import { OnPushDemoComponent } from './demos/on-push-demo/on-push-demo.component';
 import { NodeBaseComponent } from './components/node-base/node-base.component';
 import { TodolistComponent } from './components/todolist/todolist.component';
 import { NgOutButtonComponent } from './components/ng-out-button/ng-out-button.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import { HomeComponent } from './demos/home/home.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +39,9 @@ import { NgOutButtonComponent } from './components/ng-out-button/ng-out-button.c
     NodeBaseComponent,
     TodolistComponent,
     NgOutButtonComponent,
+    SidenavComponent,
+    ToolbarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,12 +49,16 @@ import { NgOutButtonComponent } from './components/ng-out-button/ng-out-button.c
     BrowserAnimationsModule,
     HttpClientModule,
     FlexLayoutModule,
+    AppRoutingModule,
     MatCardModule,
     MatButtonModule,
     MatInputModule,
     MatFormFieldModule,
     MatTabsModule,
     MatListModule,
+    MatSidenavModule,
+    MatToolbarModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

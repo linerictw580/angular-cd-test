@@ -1,0 +1,24 @@
+<app-toolbar (sidenavToggle)="sidenav.toggle()"></app-toolbar>
+
+<mat-sidenav-container autosize>
+  <mat-sidenav mode="side" role="navigation" opened #sidenav>
+    <mat-nav-list>
+      <h2 matSubheader>Sidenav</h2>
+
+      <a
+        mat-list-item
+        *ngFor="let item of items"
+        [routerLink]="item.link"
+        [routerLinkActive]="routerLinkActive"
+        [routerLinkActiveOptions]="item.linkActiveOpts"
+      >
+        <mat-icon matListIcon>{{ item.icon }}</mat-icon>
+        {{ item.label }}
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

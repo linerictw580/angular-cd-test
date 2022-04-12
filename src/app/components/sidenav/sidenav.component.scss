@@ -1,0 +1,19 @@
+@use '../../../assets/styles/variables';
+
+mat-sidenav-container {
+  height: 100%;
+  padding-top: variables.$toolbar-height;
+
+  mat-sidenav {
+    width: 240px;
+    top: variables.$toolbar-height;
+
+    mat-nav-list{
+      a[mat-list-item] {
+        &.active {
+          background: rgba($color: #000, $alpha: .04);
+        }
+      }
+    }
+  }
+}
