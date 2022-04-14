@@ -17,7 +17,7 @@ import {
   BrowserAnimationsModule,
   NoopAnimationsModule,
 } from '@angular/platform-browser/animations';
-import { NodeComponent } from './components/node/node.component';
+import { DefaultNodeComponent } from './components/default-node/default-node.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
@@ -37,7 +37,7 @@ import { UserListComponent } from './components/user-list/user-list.component';
   declarations: [
     AppComponent,
     DefaultDemoComponent,
-    NodeComponent,
+    DefaultNodeComponent,
     OnPushNodeComponent,
     OnPushDemoComponent,
     NodeBaseComponent,

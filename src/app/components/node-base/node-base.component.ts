@@ -16,7 +16,7 @@ import { IButton } from 'src/app/models/IButton.model';
 import { getName } from 'src/app/utils/fake.utils';
 
 @Component({
-  selector: 'app-node-base',
+  selector: 'app-default-node-base',
   templateUrl: './node-base.component.html',
   styleUrls: ['./node-base.component.scss'],
 })
