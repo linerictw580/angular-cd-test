@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class SidenavComponent {
   items = [
     { label: 'Home', icon: '', link: '', linkActiveOpts: { exact: true } },
+    { label: 'Lifecycle Demo', icon: '', link: './lifecycle-demo', linkActiveOpts: {} },
     { label: 'User List Demo', icon: '', link: './user-list-demo', linkActiveOpts: {} },
     { label: 'Single Node Demo', icon: '', link: './single-node-demo', linkActiveOpts: {} },
     { label: 'Default Demo', icon: '', link: '/default-demo', linkActiveOpts: {} },

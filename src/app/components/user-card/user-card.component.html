@@ -1,0 +1,20 @@
+<mat-card [ngStyle]="{ width: '500px' }">
+  <div class="card-row">
+    <span>Id: {{ id }}</span
+    >&nbsp;
+    <button (click)="onChangeId()">Change Id</button>
+  </div>
+  <div class="card-row">
+    <span>First Name: {{ name.firstName }}</span
+    >&nbsp;
+    <button (click)="onChangeFirstName()">Change First Name</button>
+  </div>
+  <div class="card-row">
+    <span>Last Name: {{ name.lastName }}</span
+    >&nbsp;
+    <button (click)="onChangeLastName()">Change Last Name</button>
+  </div>
+  <div class="card-row">
+    <button (click)="onChangeWholeName()">Change Whole Name</button>
+  </div>
+</mat-card>

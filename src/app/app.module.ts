@@ -32,6 +32,8 @@ import { SingleNodeDemoComponent } from './demos/single-node-demo/single-node-de
 import { MixedDemoComponent } from './demos/mixed-demo/mixed-demo.component';
 import { UserListDemoComponent } from './demos/user-list-demo/user-list-demo.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { LifecycleDemoComponent } from './demos/lifecycle-demo/lifecycle-demo.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     MixedDemoComponent,
     UserListDemoComponent,
     UserListComponent,
+    LifecycleDemoComponent,
+    UserCardComponent,
   ],
   imports: [
     BrowserModule,
