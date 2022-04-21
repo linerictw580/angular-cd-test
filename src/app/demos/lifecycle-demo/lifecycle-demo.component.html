@@ -1,4 +1,11 @@
+<div class="buttons">
+  <button (click)="onCreateCard()">Create Component</button>
+  <button (click)="onDestroyCard()">Destroy Component</button>
+  <button (click)="onTriggerTimeout()">Trigger Timeout</button>
+  <button (click)="onTriggerInterval(5)">Trigger Interval</button>
+</div>
 <app-user-card
+  *ngIf="displayCard"
   [id]="id"
   [name]="name"
   (changeId)="onChangeId()"

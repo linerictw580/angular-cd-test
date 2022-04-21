@@ -48,6 +48,9 @@
             "type": "attribute"
           }
         ],
+        "@angular-eslint/no-conflicting-lifecycle": [
+          "off"
+        ],
         "@typescript-eslint/ban-types": [
           "error"
         ],
